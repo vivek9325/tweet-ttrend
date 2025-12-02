@@ -33,5 +33,16 @@ pipeline {
                 }
             }
         }
+
+        stage('Build-Docker-Image') {
+            steps {
+                script {
+                    sh """
+                    echo 'Building Docker Image using custom Dockerfile...'
+                    docker build -t tweet-ttrend:latest
+                    """
+                    }
+                }
+            }
     }
 }
